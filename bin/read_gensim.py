@@ -78,6 +78,7 @@ def main():
 	parser.add_argument( 'database_path', type = str , help = 'A folder containing a text corpus and its metadata as a SQLite3 database named "corpus.db"' )
 	parser.add_argument( '--quiet'      , const = True , default = False , help = 'Show fewer debugging messages', action = 'store_const' )
 	parser.add_argument( '--overwrite'  , const = True , default = False , help = 'Overwrite any existing model', action = 'store_const' )
+	parser.add_argument( '--sentence-splitter' , default = 'utils/corenlp/SentenceSplitter.jar' , help = 'Path to the corenlp sentence splitter JAR file' )
 	args = parser.parse_args()
 	ImportGensimLDA( args.app_name, args.model_path, args.corpus_path, args.database_path, args.quiet, args.overwrite )
 

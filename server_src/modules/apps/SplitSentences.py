@@ -8,7 +8,7 @@ class SplitSentences():
 
 	SENTENCE_SPLITTER = 'utils/corenlp/SentenceSplitter.jar'
 
-	def __init__( self, inputCorpusFilename, outputSentenceFilename ):
+	def __init__( self, inputCorpusFilename, outputSentenceFilename, SENTENCE_SPLITTER_JAR = 'utils/corenlp/SentenceSplitter.jar' ):
 		self.logger = logging.getLogger('termite')
 		command = [ "java", "-jar", "-Xmx2g", SplitSentences.SENTENCE_SPLITTER, inputCorpusFilename, outputSentenceFilename ]
 		self.Shell( command )

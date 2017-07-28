@@ -44,9 +44,9 @@ class GensimReader(LDAReader):
 		self.docList = [ d.doc_id for d in self.corpus().select(self.corpus.corpus.doc_id, orderby=self.corpus.corpus.doc_index) ] if self.corpus is not None else None
 
 		self.termTopicMatrix = []
-		topicsAndFreqsTerms = self.model.show_topics(topics=-1, topn=len(self.dictionary), formatted=False)
-		for topicIndex, freqsTerms in enumerate(topicsAndFreqsTerms):
-			for value, term in freqsTerms:
+		topicsAndFreqsTerms = self.model.show_topics(topics=-1, num_words=len(self.dictionary), formatted=False)
+		for topicIndex, freqsTerms in topicsAndFreqsTerms:
+			for term, value in freqsTerms:
 				self.termTopicMatrix.append({
 					'term_index' : term,
 					'topic_index' : topicIndex,
